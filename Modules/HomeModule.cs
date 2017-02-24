@@ -47,7 +47,7 @@ namespace HairSalonCRM
                 Stylist currentStylist = Stylist.Find(currentStylistId);
                 List<Stylist> allStylists = Stylist.GetAll();
                 Dictionary<string, object> model = new Dictionary<string, object>(){{"client", currentClient}, {"stylist", currentStylist}, {"stylists", allStylists}};
-                return View["client.cshtml", model];
+                return View["client_edit.cshtml", model];
             };
 
         }
