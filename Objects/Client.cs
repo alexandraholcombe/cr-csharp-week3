@@ -8,13 +8,13 @@ namespace HairSalonCRM.Objects
     public class Client
     {
         private string _name;
-        private int _stylistId;
+        private int _clientId;
         private int _id;
 
-        public Client(string name, int stylistId, int id = 0)
+        public Client(string name, int clientId, int id = 0)
         {
             _name = name;
-            _stylistId = stylistId;
+            _clientId = clientId;
             _id = id;
         }
 
@@ -28,7 +28,7 @@ namespace HairSalonCRM.Objects
             return _id;
         }
 
-        //delete all rows from stylists db table
+        //delete all rows from clients db table
         public static void DeleteAll()
         {
             SqlConnection conn = DB.Connection();
@@ -39,6 +39,10 @@ namespace HairSalonCRM.Objects
             conn.Close();
         }
 
-
+        public static List<Client> GetAll()
+        {
+            List<Client> allClients = new List<Client>{};
+            return allClients;
+        }
     }
 }
