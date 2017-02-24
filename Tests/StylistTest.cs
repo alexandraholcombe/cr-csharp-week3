@@ -32,10 +32,14 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
-        // [Fact]
-        // public void Test_StylistsTableEmptyAtFirst()
-        // {
-        //
-        // }
+        [Fact]
+        public void Test_StylistsTableEmptyAtFirst()
+        {
+            //Arrange, Act
+            int result = Stylist.GetAll().Count;
+
+            //Assert
+            Assert.Equal(0, result);
+        }
     }
 }
