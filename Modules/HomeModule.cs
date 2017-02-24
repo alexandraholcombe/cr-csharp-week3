@@ -22,10 +22,23 @@ namespace HairSalonCRM
             };
 
             Post["/clients/new"] = _ => {
-                Client newClient = new Client(Request.Form["client-name"]);
+                Client newClient = new Client(Request.Form["client-name"], Request.Form["client-stylist"]);
                 newClient.Save();
                 List<Stylist> allStylists = Stylist.GetAll();
                 return View["index.cshtml", allStylists];
+            };
+
+            Get["/stylists/{id}"] = parameters => {
+                Stylist currentStylist = Stylist.Find(parameters.id);
+                return View["stylist.cshtml", currentStylist];
+            };
+
+            Get["/clients/{id}"] = parameters => {
+                Client currentClient = Client.Find(parameters.id);
+                int currentStylistId = currentClient.GetClientStylistId();
+                Stylist currentStylist = Stylist.Find(currentStylistId);
+                Dictionary<string, object> model = new Dictionary<string, object>(){{"client", currentClient}, {"stylist", currentStylist}};
+                return View["client.cshtml", currentClient];
             };
 
         }
