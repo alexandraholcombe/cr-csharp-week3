@@ -164,5 +164,67 @@ namespace HairSalonCRM.Objects
 
             return foundClient;
         }
+
+        //update properties of client objects in db
+        public void Update(string newClientName = null, int newClientStylistId = 0)
+        {
+            //Open Connection
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            //new command to change any changed fields
+            SqlCommand cmd = new SqlCommand("UPDATE clients SET name = @newClientName, stylist_id = @newClientStylistId OUTPUT INSERTED.name, INSERTED.stylist_id WHERE id = @ClientId;", conn);
+
+            //Get id of client to use in command
+            SqlParameter clientIdParameter = new SqlParameter();
+            cmd.Parameters.Add(new SqlParameter("@ClientId", this.GetClientId()));
+
+            //CHANGE CLIENT name
+            SqlParameter newClientNameParameter = new SqlParameter();
+            newClientNameParameter.ParameterName = "@newClientName";
+
+            //if there is a new client name, change it
+            if (!String.IsNullOrEmpty(newClientName))
+            {
+                newClientNameParameter.Value = newClientName;
+            }
+            else
+            {
+                newClientNameParameter.Value = this.GetClientName();
+            }
+            cmd.Parameters.Add(newClientNameParameter);
+
+            //CHANGE CLIENT stylist id
+            SqlParameter newClientStylistIdParameter = new SqlParameter();
+            newClientStylistIdParameter.ParameterName = "@newClientStylistId";
+
+            //if there is a new client name, change it
+            if (newClientStylistId != 0)
+            {
+                newClientStylistIdParameter.Value = newClientStylistId;
+            }
+            else
+            {
+                newClientStylistIdParameter.Value = this.GetClientStylistId();
+            }
+            cmd.Parameters.Add(newClientStylistIdParameter);
+
+            //execute reader
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                this._name = rdr.GetString(0);
+                this._stylistId = rdr.GetInt32(1);
+            }
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+            if(conn != null)
+            {
+                conn.Close();
+            }
+        }
     }
 }
