@@ -32,6 +32,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
+        //tests if table is empty at start of test; testing dispose and DeleteAll method
         [Fact]
         public void Test_StylistsTableEmptyAtFirst()
         {
@@ -42,8 +43,9 @@ namespace HairSalonCRM.Objects
             Assert.Equal(0, result);
         }
 
+        //test if equals override works
         [Fact]
-        public void Test_EqualOverrideTrueIfCuisineNameIsSame()
+        public void TestEqualOverride_TrueIfCuisineNameIsSame()
         {
             //Arrange, Act
             Stylist firstStylist = new Stylist("Jennifer");
@@ -51,6 +53,25 @@ namespace HairSalonCRM.Objects
 
             //Assert
             Assert.Equal(firstStylist, secondStylist);
+        }
+
+        [Fact]
+        public void TestGetAll_Stylists_ReturnsListOfStylists()
+        {
+            //Arrange
+            List<Stylist> allStylists = new List<Stylist> {};
+            Stylist firstStylist = new Stylist("Jennifer");
+            Stylist secondStylist = new Stylist("Jennifer");
+
+            //Act
+            allStylists.Add(firstStylist);
+            allStylists.Add(secondStylist);
+
+            //Assert
+            List<Stylist> actualResult = Stylist.GetAll();
+            List<Stylist> expectedResult = new List<Stylist>{firstStylist, secondStylist};
+
+            Assert.Equal(expectedResult, actualResult);
         }
     }
 }
