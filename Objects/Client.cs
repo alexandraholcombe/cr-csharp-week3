@@ -17,5 +17,15 @@ namespace HairSalonCRM.Objects
             _stylistId = stylistId;
             _id = id;
         }
+
+        public string GetClientName()
+        {
+            return _name;
+        }
+
+        public int GetClientId()
+        {
+            return _id;
+        }
     }
 }
