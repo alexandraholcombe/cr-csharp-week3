@@ -55,18 +55,17 @@ This website will take a string and a word from a user, then count the number of
 \> New stylist: "Jennifer"
 * Example Output: no return value
 
+**The Save method for the Stylist class will assign an id to each new instance of the Stylist class.**
+* Example Input:  
+\> New stylist: "Jennifer", `local id: 0`  
+* Example Output:  
+\> "Jennifer", `database-assigned id`  
+
 **The GetAll method for the Stylist class will return all stylist entries in the database in the form of a list.**
 * Example Input:  
         > "Elizabeth", id is 10  
         > "Katie", id is 11  
 * Example Output: `{Elizabeth object}, {Katie object}`
-
-
-**The Save method for the Stylist class will assign an id to each new instance of the Stylist class.**
-* Example Input:  
-    \> New stylist: "Jennifer", `local id: 0`  
-* Example Output:  
-    \> "Jennifer", `database-assigned id`  
 
 **The Find method for the Stylist class will return the Stylist as defined in the database.**
 * Example Input: "Jennifer"
@@ -94,17 +93,17 @@ This website will take a string and a word from a user, then count the number of
 \> New client: "Jennifer", `stylist_id`
 * Example Output: no return value
 
+**The Save method for the Client class will assign an id to each new instance of the Client class.**
+* Example Input:  
+\> New stylist: "Jennifer", `stylist_id`, `local id: 0`  
+* Example Output:  
+\> "Jennifer",  `stylist_id`, `database-assigned id`  
+
 **The GetAll method for the Client class will return all client entries in the database in the form of a list.**
 * Example Input:  
         > "Elizabeth", id is 10  
         > "Katie", id is 11  
 * Example Output: `{Elizabeth object}, {Katie object}`
-
-**The Save method for the Client class will assign an id to each new instance of the Client class.**
-* Example Input:  
-    \> New stylist: "Jennifer", `stylist_id`, `local id: 0`  
-* Example Output:  
-    \> "Jennifer",  `stylist_id`, `database-assigned id`  
 
 **The Find method for the Client class will return the Client as defined in the database.**
 * Example Input: "Jennifer", `stylist_id`,
