@@ -47,6 +47,7 @@ namespace HairSalonCRM.Objects
             }
         }
 
+        //return list of all stylists in the database
         public static List<Stylist> GetAll()
         {
             List<Stylist> allStylists = new List<Stylist>{};
@@ -77,6 +78,7 @@ namespace HairSalonCRM.Objects
             return allStylists;
         }
 
+        //Save stylist into database
         public void Save()
         {
             SqlConnection conn = DB.Connection();
@@ -104,6 +106,41 @@ namespace HairSalonCRM.Objects
             }
         }
 
+        //return stylist information as per id argument
+        public static Stylist Find(int id)
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM stylists WHERE id = @StylistId;", conn);
+            cmd.Parameters.Add(new SqlParameter("@StylistId", id.ToString()));
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            int foundStylistId = 0;
+            string foundStylistName = null;
+
+            while(rdr.Read())
+            {
+                foundStylistId = rdr.GetInt32(0);
+                foundStylistName = rdr.GetString(1);
+            }
+
+            Stylist foundStylist = new Stylist(foundStylistName, foundStylistId);
+
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+
+            if(conn != null)
+            {
+                conn.Close();
+            }
+
+            return foundStylist;
+        }
+
+        //delete all rows from stylists db table
         public static void DeleteAll()
         {
             SqlConnection conn = DB.Connection();

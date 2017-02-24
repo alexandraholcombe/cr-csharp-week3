@@ -114,7 +114,7 @@ namespace HairSalonCRM.Objects
             testStylist.Save();
 
             //Act
-            Stylist foundStylist = Stylist.Find(testStylist.GetId());
+            Stylist foundStylist = Stylist.Find(testStylist.GetStylistId());
 
             //Assert
             Assert.Equal(testStylist, foundStylist);
