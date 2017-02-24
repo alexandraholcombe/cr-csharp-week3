@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace HairSalonCRM
+namespace HairSalonCRM.Objects
 {
   public class DB
   {
