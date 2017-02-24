@@ -36,13 +36,13 @@ This website will take a string and a word from a user, then count the number of
 ### Stylist Class
 ================  
 
+**The DeleteAll method for the Stylist class will delete all rows from the stylists table.**
+* Example Input: none
+* Example Input: nothing
+
 **The GetAll method for the Stylist class will return an empty list if there are no entries in the Stylist table.**
 * Example Input: N/A, automatically loads on home page
 * Example Output: empty list
-
-**The DeleteAll method for the Stylist class will return an empty list of Stylist objects and delete all rows from the stylists table.**
-* Example Input: none
-* Example Input: `{empty list}`
 
 **The Equals method for the Stylist class will return true if the Stylist in local memory matches the Stylist pulled from the database.**
 * Example Input:  
@@ -74,13 +74,13 @@ This website will take a string and a word from a user, then count the number of
 ### Client class
 ================
 
+**The DeleteAll method for the Client class will will delete all rows from the clients table.**
+* Example Input: none
+* Example Input: `{empty list}`
+
 **The GetAll method for the Client class will return an empty list if there are no entries in the Client table.**
 * Example Input: N/A, automatically loads on home page
 * Example Output: empty list
-
-**The DeleteAll method for the Client class will return an empty list of Client objects and delete all rows from the clients table.**
-* Example Input: none
-* Example Input: `{empty list}`
 
 **The Equals method for the Client class will return true if the Client in local memory matches the Client pulled from the database.**
 * Example Input:  
