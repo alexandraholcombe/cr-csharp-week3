@@ -107,5 +107,20 @@ namespace HairSalonCRM.Objects
 
             Assert.Equal(expectedResult, actualResult);
         }
+        
+        //Tests db-fetching specific item
+        [Fact]
+        public void TestFind_FindsClientInDatabase()
+        {
+            //Arrange
+            Client testClient = new Client("Jennifer", 1);
+            testClient.Save();
+
+            //Act
+            Client foundClient = Client.Find(testClient.GetClientId());
+
+            //Assert
+            Assert.Equal(testClient, foundClient);
+        }
     }
 }

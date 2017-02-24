@@ -109,6 +109,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
+        //Tests db-fetching specific item
         [Fact]
         public void TestFind_FindsStylistInDatabase()
         {
