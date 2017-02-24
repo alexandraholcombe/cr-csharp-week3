@@ -75,13 +75,12 @@ namespace HairSalonCRM.Objects
         public void TestGetAll_Stylists_ReturnsListOfStylists()
         {
             //Arrange
-            List<Stylist> allStylists = new List<Stylist> {};
             Stylist firstStylist = new Stylist("Jennifer");
             Stylist secondStylist = new Stylist("Jennifer");
 
             //Act
-            allStylists.Add(firstStylist);
-            allStylists.Add(secondStylist);
+            firstStylist.Save();
+            secondStylist.Save();
 
             //Assert
             List<Stylist> actualResult = Stylist.GetAll();
