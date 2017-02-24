@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace HairSalonCRM.Objects
 {
-    public class Stylist
+    public class Client
     {
     }
 }
