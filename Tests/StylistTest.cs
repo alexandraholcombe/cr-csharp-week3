@@ -12,6 +12,14 @@ namespace HairSalonCRM.Objects
         {
             DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
         }
+
+        //Delete everything between tests
+        public void Dispose()
+        {
+            Stylist.DeleteAll();
+        }
+
+        //Test that if there are no stylists, GetAll returns empty list
         [Fact]
         public void TestGetAll_NoStylists_ReturnsEmptyList()
         {

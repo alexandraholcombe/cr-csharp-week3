@@ -31,5 +31,15 @@ namespace HairSalonCRM.Objects
             List<Stylist> allStylists = new List<Stylist>{};
             return allStylists;
         }
+
+        public static void DeleteAll()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM cuisines;", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
