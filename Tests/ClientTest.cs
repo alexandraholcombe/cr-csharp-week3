@@ -70,5 +70,23 @@ namespace HairSalonCRM.Objects
 
             Assert.Equal(expectedResult, actualResult);
         }
+
+        //tests that each instance is assigned corresponding db id
+        [Fact]
+        public void TestSave_AssignIdtoObject()
+        {
+            //Arrange
+            Client testClient = new Client("Jennifer", 1);
+
+            //Act
+            testClient.Save();
+            Client savedClient = Client.GetAll()[0];
+
+            //Assert
+            int actualResult = savedClient.GetClientId();
+            int expectedResult = testClient.GetClientId();
+
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }
