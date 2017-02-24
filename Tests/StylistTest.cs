@@ -55,6 +55,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(firstStylist, secondStylist);
         }
 
+        //tests if instances are saved to db
         [Fact]
         public void Test_Save_SavesToDatabase()
         {

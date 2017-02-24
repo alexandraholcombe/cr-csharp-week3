@@ -97,5 +97,36 @@ namespace HairSalonCRM.Objects
             }
             return allClients;
         }
+
+        //Save instance into database
+        public void Save()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO clients (name, stylist_id) OUTPUT INSERTED.id VALUES(@ClientName, @ClientStylistId);", conn);
+
+            SqlParameter clientNameParameter = new SqlParameter();
+            cmd.Parameters.Add(new SqlParameter("@ClientName", this.GetClientName()));
+
+            SqlParameter clientStylistIdParameter = new SqlParameter();
+            cmd.Parameters.Add(new SqlParameter("@ClientStylistId", this.GetClientStylistId()));
+
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                this._id = rdr.GetInt32(0);
+            }
+
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+            if(conn != null)
+            {
+                conn.Close();
+            }
+        }
     }
 }
