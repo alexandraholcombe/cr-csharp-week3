@@ -128,10 +128,6 @@ This website will take a string and a word from a user, then count the number of
 ### User Interface
 ===================  
 
-**The user can click on any stylist in the Stylists list to view a new page with a list of the stylist's clients**
-* Example Input: *jennifer clicky*
-* Example Output: "Rebecca, Nicole, Claire"
-
 **The user can add a new Stylist using the "Add Stylist" form.**
 * Example Input: New Stylist: "Jennifer"
 * Example Output: All stylists: "Allison, Kacey, Jennifer"
@@ -139,6 +135,10 @@ This website will take a string and a word from a user, then count the number of
 **The user can add a new client using the "Add client" form.**
 * Example Input: New Client: "Rebecca", Stylist: "Elizabeth"
 * Example Output: Elizabeth's clients: "Claire, Rebecca"
+
+**The user can click on any stylist in the Stylists list to view a new page with a list of the stylist's clients**
+* Example Input: *jennifer clicky*
+* Example Output: "Rebecca, Nicole, Claire"
 
 **The user can edit a client using a link on the client's page which will lead to a change form.**
 * Example Input:  
