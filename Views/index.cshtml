@@ -11,7 +11,24 @@
 </ul>
 
 <form action="/stylists/new" method="post">
-    <label for="stylist-name">Add New Stylist:</label>
-    <input type="text" name="stylist-name" id="stylist-name">
-    <button type="submit">Add</button>
+    <div class="form-group">
+        <label for="stylist-name">Add New Stylist:</label>
+        <input type="text" name="stylist-name" id="stylist-name">
+        <button type="submit">Add Stylist</button>
+    </div>
+</form>
+
+<form action="/clients/new" method="post">
+    <div class="form-group">
+        <label for="client-name">Name:</label>
+        <input type="text" name="client-name" id="client-name">
+        <label for="client-stylist">Stylist:</label>
+        <select name="client-stylist" id="client-stylist">
+            @foreach (var stylist in @Model)
+            {
+                <option value="@stylist.GetStylistId()">@stylist.GetStylistName()</option>
+            }
+            <button type="submit" name="button">Add Client</button>
+        </select>
+    </div>
 </form>
