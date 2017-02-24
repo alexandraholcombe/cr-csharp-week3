@@ -54,5 +54,21 @@ namespace HairSalonCRM.Objects
             //Assert
             Assert.Equal(firstClient, secondClient);
         }
+        //tests if instances are saved to db
+        [Fact]
+        public void Test_Save_SavesToDatabase()
+        {
+            //Arrange
+            Client newClient = new Client("Jennifer", 1);
+
+            //Act
+            newClient.Save();
+
+            //Assert
+            List<Client> actualResult = Client.GetAll();
+            List<Client> expectedResult = new List<Client>{newClient};
+
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }
