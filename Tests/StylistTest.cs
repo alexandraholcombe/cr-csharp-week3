@@ -106,5 +106,18 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
+        [Fact]
+        public void TestFind_FindsStylistInDatabase()
+        {
+            //Arrange
+            Stylist testStylist = new Stylist("Jennifer");
+            testStylist.Save();
+
+            //Act
+            Stylist foundStylist = Stylist.Find(testStylist.GetId());
+
+            //Assert
+            Assert.Equal(testStylist, foundStylist);
+        }
     }
 }
