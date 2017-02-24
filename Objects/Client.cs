@@ -28,7 +28,16 @@ namespace HairSalonCRM.Objects
             return _id;
         }
 
-        
+        //delete all rows from stylists db table
+        public static void DeleteAll()
+        {
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM clients;", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
 
     }

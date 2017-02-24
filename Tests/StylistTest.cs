@@ -32,7 +32,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
-        //tests if table is empty at start of test; testing dispose and DeleteAll method
+        //tests if table is empty at start of test; testing dispose method
         [Fact]
         public void Test_StylistsTableEmptyAtFirst()
         {

@@ -38,7 +38,7 @@ This website will take a string and a word from a user, then count the number of
 
 **The DeleteAll method for the Stylist class will delete all rows from the stylists table.**
 * Example Input: none
-* Example Input: nothing
+* Example Output: nothing
 
 **The GetAll method for the Stylist class will return an empty list if there are no entries in the Stylist table.**
 * Example Input: N/A, automatically loads on home page
@@ -76,7 +76,7 @@ This website will take a string and a word from a user, then count the number of
 
 **The DeleteAll method for the Client class will will delete all rows from the clients table.**
 * Example Input: none
-* Example Input: `{empty list}`
+* Example Output: nothing
 
 **The GetAll method for the Client class will return an empty list if there are no entries in the Client table.**
 * Example Input: N/A, automatically loads on home page
