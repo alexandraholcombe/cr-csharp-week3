@@ -37,7 +37,7 @@ namespace HairSalonCRM.Objects
             SqlConnection conn = DB.Connection();
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("DELETE FROM cuisines;", conn);
+            SqlCommand cmd = new SqlCommand("DELETE FROM stylists;", conn);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
