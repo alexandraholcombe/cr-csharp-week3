@@ -107,7 +107,7 @@ namespace HairSalonCRM.Objects
 
             Assert.Equal(expectedResult, actualResult);
         }
-        
+
         //Tests db-fetching specific item
         [Fact]
         public void TestFind_FindsClientInDatabase()
@@ -121,6 +121,28 @@ namespace HairSalonCRM.Objects
 
             //Assert
             Assert.Equal(testClient, foundClient);
+        }
+
+        //Tests if update method updates instance in db
+        [Fact]
+        public void TestUpdate_UpdatesClientinDatabase()
+        {
+            //Arrange
+            string clientName = "Jennifer";
+            int clientStylistId = 1;
+            Client testClient = new Client(clientName, clientStylistId);
+            testClient.Save();
+
+            string newClientName = "Jenny";
+
+            //Act
+            testClient.Update(newClientName);
+
+            //Assert
+            string actualResult = testClient.GetClientName();
+            string expectedResult = newClientName;
+
+            Assert.Equal(expectedResult, actualResult);
         }
     }
 }
