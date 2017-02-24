@@ -12,5 +12,22 @@ namespace HairSalonCRM.Objects
         {
             DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
         }
+        [Fact]
+        public void TestGetAll_NoStylists_ReturnsEmptyList()
+        {
+            //Arrange, Act
+            List<Stylist> allStylists = Stylist.GetAll();
+
+            //Assert
+            List<Stylist> actualResult = allStylists;
+            List<Stylist> expectedResult = new List<Stylist>{};
+            Assert.Equal(expectedResult, actualResult);
+        }
+
+        // [Fact]
+        // public void Test_StylistsTableEmptyAtFirst()
+        // {
+        //
+        // }
     }
 }
