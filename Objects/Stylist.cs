@@ -25,5 +25,11 @@ namespace HairSalonCRM.Objects
         {
             return _id;
         }
+
+        public static List<Stylist> GetAll()
+        {
+            List<Stylist> allStylists = new List<Stylist>{};
+            return allStylists;
+        }
     }
 }
