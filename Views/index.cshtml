@@ -22,6 +22,8 @@
     <div class="form-group">
         <label for="client-name">Name:</label>
         <input type="text" name="client-name" id="client-name">
+    </div>
+    <div class="form-group">
         <label for="client-stylist">Stylist:</label>
         <select name="client-stylist" id="client-stylist">
             @foreach (var stylist in @Model)
@@ -29,6 +31,6 @@
                 <option value="@stylist.GetStylistId()">@stylist.GetStylistName()</option>
             }
         </select>
-        <button type="submit" name="button">Add Client</button>
     </div>
+    <button type="submit" name="button">Add Client</button>
 </form>

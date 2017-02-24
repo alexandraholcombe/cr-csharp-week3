@@ -1,0 +1,26 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>Edit @Model["client"].GetClientName()</h1>
+
+<form action="/clients/@Model["client"].GetClientId()" method="post">
+    <div class="form-group">
+        <label for="client-name">New Name:</label>
+        <input type="text" name="client-name" id="client-name">
+    </div>
+    <div class="form-group">
+        <label for="client-stylist">New Stylist:</label>
+        <select name="client-stylist" id="client-stylist">
+            @foreach (var stylist in @Model["stylists"])
+            {
+                <option value="@stylist.GetStylistId()">@stylist.GetStylistName()</option>
+            }
+        </select>
+    </div>
+    <button type="submit" name="button">Submit</button>
+</form>
+
+<p><a href="/clients/@Model["client"].GetClientId()/">Back to @Model["client"].GetClientName()</a></p>
+<p><a href="/stylists/@Model["stylist"].GetStylistId()">Back to @Model["stylist"].GetStylistName()</a></p>
+<p><a href="/">All Stylists</a></p>

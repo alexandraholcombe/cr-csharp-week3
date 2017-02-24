@@ -6,7 +6,7 @@
 <ul>
     @foreach (var client in @Model.GetClients())
     {
-        <li>@client.GetClientName()</li>
+        <li><a href="/clients/@client.GetClientId()">@client.GetClientName()</a></li>
     }
 </ul>
 
