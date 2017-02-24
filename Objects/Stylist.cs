@@ -26,6 +26,27 @@ namespace HairSalonCRM.Objects
             return _id;
         }
 
+        public override int GetHashCode()
+        {
+            return this.GetStylistId().GetHashCode();
+        }
+
+        public override bool Equals(System.Object otherStylist)
+        {
+            if (!(otherStylist is Stylist))
+            {
+                return false;
+            }
+            else
+            {
+                Stylist newStylist = (Stylist) otherStylist;
+                bool idEquality = (this.GetStylistId() == newStylist.GetStylistId());
+                bool nameEquality = (this.GetStylistName() == newStylist.GetStylistName());
+
+                return (idEquality && nameEquality);
+            }
+        }
+
         public static List<Stylist> GetAll()
         {
             List<Stylist> allStylists = new List<Stylist>{};
