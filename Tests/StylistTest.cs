@@ -41,5 +41,16 @@ namespace HairSalonCRM.Objects
             //Assert
             Assert.Equal(0, result);
         }
+
+        [Fact]
+        public void Test_EqualOverrideTrueIfCuisineNameIsSame()
+        {
+            //Arrange, Act
+            Stylist firstStylist = new Stylist("Jennifer");
+            Stylist secondStylist = new Stylist("Jennifer");
+
+            //Assert
+            Assert.Equal(firstStylist, secondStylist);
+        }
     }
 }
