@@ -132,9 +132,9 @@ namespace HairSalonCRM.Objects
             Stylist testStylist = new Stylist("Jennifer");
             testStylist.Save();
 
-            Client firstClient = new Client("Rebecca", 1);
-            Client secondClient = new Client("Julia", 1);
-            Client thirdClient = new Client("Claire", 1);
+            Client firstClient = new Client("Rebecca", testStylist.GetStylistId());
+            Client secondClient = new Client("Julia", testStylist.GetStylistId());
+            Client thirdClient = new Client("Claire", testStylist.GetStylistId());
 
             //Act
             firstClient.Save();

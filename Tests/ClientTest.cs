@@ -24,6 +24,7 @@ namespace HairSalonCRM.Objects
         public void TestGetAll_NoClients_ReturnsEmptyList()
         {
             //Arrange, Act
+            Client.DeleteAll();
             List<Client> allClients = Client.GetAll();
 
             //Assert

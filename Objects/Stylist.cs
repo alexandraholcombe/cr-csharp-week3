@@ -140,6 +140,46 @@ namespace HairSalonCRM.Objects
             return foundStylist;
         }
 
+        //retrieve all clients w/ matching stylist id
+        public List<Client> GetClients()
+        {
+            List<Client> stylistClients = new List<Client>{};
+
+            SqlConnection conn = DB.Connection();
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE stylist_id = @StylistId;", conn);
+            // cmd.Parameters.Add(new SqlParameter("@StylistId", this.GetStylistId()));
+            SqlParameter clientStylistIdParameter = new SqlParameter();
+            clientStylistIdParameter.ParameterName = "@StylistId";
+            clientStylistIdParameter.Value = this.GetStylistId();
+            cmd.Parameters.Add(clientStylistIdParameter);
+            SqlDataReader rdr = cmd.ExecuteReader();
+
+            while(rdr.Read())
+            {
+                int clientId = rdr.GetInt32(0);
+                string clientName = rdr.GetString(1);
+                int clientStylistId = rdr.GetInt32(2);
+
+                Client newClient = new Client(clientName, clientStylistId, clientId);
+                stylistClients.Add(newClient);
+            }
+
+            if(rdr != null)
+            {
+                rdr.Close();
+            }
+
+            if(conn != null)
+            {
+                conn.Close();
+            }
+
+            return stylistClients;
+        }
+
+
         //delete all rows from stylists db table
         public static void DeleteAll()
         {
