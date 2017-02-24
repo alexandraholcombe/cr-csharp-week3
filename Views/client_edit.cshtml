@@ -7,11 +7,11 @@
 <form action="/clients/@Model["client"].GetClientId()" method="post">
     <div class="form-group">
         <label for="client-name">New Name:</label>
-        <input type="text" name="client-name" id="client-name">
+        <input type="text" name="client-name" id="new-client-name">
     </div>
     <div class="form-group">
         <label for="client-stylist">New Stylist:</label>
-        <select name="client-stylist" id="client-stylist">
+        <select name="client-stylist" id="new-client-stylist">
             @foreach (var stylist in @Model["stylists"])
             {
                 <option value="@stylist.GetStylistId()">@stylist.GetStylistName()</option>

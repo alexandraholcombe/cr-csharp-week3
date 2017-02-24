@@ -50,6 +50,14 @@ namespace HairSalonCRM
                 return View["client_edit.cshtml", model];
             };
 
+            Patch["/clients/{id}/edit"] = parameters => {
+                Client currentClient = Client.Find(parameters.id);
+                currentClient.Update(Request.Form["new-client-name"], Request.Form["new-client-stylist"]);
+                Stylist currentStylist = Stylist.Find(currentClient.GetStylistId());
+                Dictionary<string, object> model = new Dictionary<string, object>(){{"client", currentClient}, {"stylist", currentStylist}};
+                return View["client.cshtml", model];
+            };
+
         }
     }
 }
