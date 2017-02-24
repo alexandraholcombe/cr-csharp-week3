@@ -123,5 +123,29 @@ namespace HairSalonCRM.Objects
             //Assert
             Assert.Equal(testStylist, foundStylist);
         }
+
+        //Tests if all clients are returned by GetClients
+        [Fact]
+        public void TestGetClients_ListsClientsBelongingToStylist()
+        {
+            //Arrange
+            Stylist testStylist = new Stylist("Jennifer");
+            testStylist.Save();
+
+            Client firstClient = new Client("Rebecca", 1);
+            Client secondClient = new Client("Julia", 1);
+            Client thirdClient = new Client("Claire", 1);
+
+            //Act
+            firstClient.Save();
+            secondClient.Save();
+            thirdClient.Save();
+
+            //Assert
+            List<Client> expectedResult = new List<Client>{firstClient, secondClient, thirdClient};
+            List<Client> actualResult = testStylist.GetClients();
+
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }
