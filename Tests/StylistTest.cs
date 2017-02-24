@@ -56,6 +56,22 @@ namespace HairSalonCRM.Objects
         }
 
         [Fact]
+        public void Test_Save_SavesToDatabase()
+        {
+            //Arrange
+            Stylist newStylist = new Stylist("Jennifer");
+
+            //Act
+            newStylist.Save();
+
+            //Assert
+            List<Stylist> actualResult = Stylist.GetAll();
+            List<Stylist> expectedResult = new List<Stylist>{newStylist};
+
+            Assert.Equal(expectedResult, actualResult);
+        }
+
+        [Fact]
         public void TestGetAll_Stylists_ReturnsListOfStylists()
         {
             //Arrange
