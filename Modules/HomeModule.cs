@@ -20,7 +20,14 @@ namespace HairSalonCRM
                 List<Stylist> allStylists = Stylist.GetAll();
                 return View["index.cshtml", allStylists];
             };
-            
+
+            Post["/clients/new"] = _ => {
+                Client newClient = new Client(Request.Form["client-name"]);
+                newClient.Save();
+                List<Stylist> allStylists = Stylist.GetAll();
+                return View["index.cshtml", allStylists];
+            };
+
         }
     }
 }
