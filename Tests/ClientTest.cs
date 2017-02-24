@@ -42,5 +42,17 @@ namespace HairSalonCRM.Objects
             //Assert
             Assert.Equal(0, result);
         }
+
+        //test if equals override works
+        [Fact]
+        public void TestEqualOverride_TrueIfClientNameIsSame()
+        {
+            //Arrange, Act
+            Client firstClient = new Client("Jennifer", 1);
+            Client secondClient = new Client("Jennifer", 1);
+
+            //Assert
+            Assert.Equal(firstClient, secondClient);
+        }
     }
 }

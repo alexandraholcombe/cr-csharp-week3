@@ -8,13 +8,13 @@ namespace HairSalonCRM.Objects
     public class Client
     {
         private string _name;
-        private int _clientId;
+        private int _stylistId;
         private int _id;
 
-        public Client(string name, int clientId, int id = 0)
+        public Client(string name, int stylistId, int id = 0)
         {
             _name = name;
-            _clientId = clientId;
+            _stylistId = stylistId;
             _id = id;
         }
 
@@ -23,9 +23,36 @@ namespace HairSalonCRM.Objects
             return _name;
         }
 
+        public int GetClientStylistId()
+        {
+            return _stylistId;
+        }
+
         public int GetClientId()
         {
             return _id;
+        }
+
+        public override bool Equals(System.Object otherClient)
+        {
+            if (!(otherClient is Client))
+            {
+                return false;
+            }
+            else
+            {
+                Client newClient = (Client) otherClient;
+                bool idEquality = (this.GetClientId() == newClient.GetClientId());
+                bool nameEquality = (this.GetClientName() == newClient.GetClientName());
+                bool stylistIdEquality = (this.GetClientStylistId() == newClient.GetClientStylistId());
+
+                return (idEquality && nameEquality && stylistIdEquality);
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.GetClientId().GetHashCode();
         }
 
         //delete all rows from clients db table
@@ -39,6 +66,7 @@ namespace HairSalonCRM.Objects
             conn.Close();
         }
 
+        //return list of all clientss in the database
         public static List<Client> GetAll()
         {
             List<Client> allClients = new List<Client>{};

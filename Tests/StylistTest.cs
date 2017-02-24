@@ -45,7 +45,7 @@ namespace HairSalonCRM.Objects
 
         //test if equals override works
         [Fact]
-        public void TestEqualOverride_TrueIfCuisineNameIsSame()
+        public void TestEqualOverride_TrueIfStylistNameIsSame()
         {
             //Arrange, Act
             Stylist firstStylist = new Stylist("Jennifer");
