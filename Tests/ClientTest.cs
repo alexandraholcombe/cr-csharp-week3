@@ -32,15 +32,15 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
-        // //tests if table is empty at start of test; testing dispose method
-        // [Fact]
-        // public void Test_ClientsTableEmptyAtFirst()
-        // {
-        //     //Arrange, Act
-        //     int result = Client.GetAll().Count;
-        //
-        //     //Assert
-        //     Assert.Equal(0, result);
-        // }
+        //tests if table is empty at start of test; testing dispose method
+        [Fact]
+        public void Test_ClientsTableEmptyAtFirst()
+        {
+            //Arrange, Act
+            int result = Client.GetAll().Count;
+
+            //Assert
+            Assert.Equal(0, result);
+        }
     }
 }
