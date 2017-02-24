@@ -88,5 +88,24 @@ namespace HairSalonCRM.Objects
 
             Assert.Equal(expectedResult, actualResult);
         }
+
+        //Tests that GetAll method pulls all items from db
+        [Fact]
+        public void TestGetAll_Clients_ReturnsListOfClients()
+        {
+            //Arrange
+            Client firstClient = new Client("Jennifer", 1);
+            Client secondClient = new Client("Jennifer", 1);
+
+            //Act
+            firstClient.Save();
+            secondClient.Save();
+
+            //Assert
+            List<Client> actualResult = Client.GetAll();
+            List<Client> expectedResult = new List<Client>{firstClient, secondClient};
+
+            Assert.Equal(expectedResult, actualResult);
+        }
     }
 }

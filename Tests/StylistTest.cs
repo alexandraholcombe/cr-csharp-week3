@@ -72,6 +72,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
+        //tests that each instance is assigned corresponding db id
         [Fact]
         public void TestSave_AssignIdtoObject()
         {
@@ -89,6 +90,7 @@ namespace HairSalonCRM.Objects
             Assert.Equal(expectedResult, actualResult);
         }
 
+        //Tests that GetAll method pulls all items from db
         [Fact]
         public void TestGetAll_Stylists_ReturnsListOfStylists()
         {
