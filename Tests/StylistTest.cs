@@ -72,6 +72,23 @@ namespace HairSalonCRM.Objects
         }
 
         [Fact]
+        public void TestSave_AssignIdtoObject()
+        {
+            //Arrange
+            Stylist testStylist = new Stylist("Jennifer");
+
+            //Act
+            testStylist.Save();
+            Stylist savedStylist = Stylist.GetAll()[0];
+
+            //Assert
+            int actualResult = savedStylist.GetStylistId();
+            int expectedResult = testStylist.GetStylistId();
+
+            Assert.Equal(expectedResult, actualResult);
+        }
+
+        [Fact]
         public void TestGetAll_Stylists_ReturnsListOfStylists()
         {
             //Arrange
@@ -88,5 +105,6 @@ namespace HairSalonCRM.Objects
 
             Assert.Equal(expectedResult, actualResult);
         }
+
     }
 }
