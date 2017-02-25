@@ -50,7 +50,6 @@ namespace HairSalonCRM
                 return View["client_edit.cshtml", model];
             };
 
-            //doesn't work just because i guess
             Patch["/clients/{id}/edit"] = parameters => {
                 Client currentClient = Client.Find(parameters.id);
                 currentClient.Update(Request.Form["new-client-name"], Request.Form["new-client-stylist"]);
@@ -58,6 +57,11 @@ namespace HairSalonCRM
                 Dictionary<string, object> model = new Dictionary<string, object>(){{"client", currentClient}, {"stylist", currentStylist}};
                 return View["client.cshtml", model];
             };
+
+            Delete["/clients/{id}/delete"] = parameters => {
+                Client currentClient = Client.Find(parameters.id);
+                currentClient.Delete()
+            }
 
         }
     }

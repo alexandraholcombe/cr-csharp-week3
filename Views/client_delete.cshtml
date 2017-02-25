@@ -1,0 +1,13 @@
+@{
+    Layout="Shared/_Layout.cshtml";
+}
+
+<h1>@Model.GetClientName()</h1>
+<h2>Are you sure you want to delete @Model.GetClientName()?</h2>
+<form action="/clients/@Model.GetClientId()/delete" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" name="button">Delete @Model.GetClientName()</button>
+</form>
+
+<p><a href="/clients/@Model.GetClientId()">Back to @Model.GetClientName()</a></p>
+<p><a href="/">All Stylists</a></p>

@@ -227,5 +227,19 @@ namespace HairSalonCRM.Objects
                 conn.Close();
             }
         }
+
+        //delete client from db
+        public void DeleteClient()
+        {
+            SqlConnection conn = DB.Connection;
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("DELETE FROM clients WHERE id = @ClientId;", conn);
+            cmd.Parameters.Add(new SqlParameter("@ClientId", this.GetClientId()));
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
     }
 }
