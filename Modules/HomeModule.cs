@@ -58,10 +58,17 @@ namespace HairSalonCRM
                 return View["client.cshtml", model];
             };
 
+            Get["/clients/{id}/delete"] = parameters => {
+                Client currentClient = Client.Find(parameters.id);
+                return View["client_delete.cshtml", currentClient];
+            };
+
             Delete["/clients/{id}/delete"] = parameters => {
                 Client currentClient = Client.Find(parameters.id);
-                currentClient.Delete()
-            }
+                Stylist currentStylist = Stylist.Find(currentClient.GetClientStylistId());
+                currentClient.DeleteClient();
+                return View["stylist.cshtml", currentStylist];
+            };
 
         }
     }

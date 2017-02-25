@@ -231,7 +231,7 @@ namespace HairSalonCRM.Objects
         //delete client from db
         public void DeleteClient()
         {
-            SqlConnection conn = DB.Connection;
+            SqlConnection conn = DB.Connection();
             conn.Open();
 
             SqlCommand cmd = new SqlCommand("DELETE FROM clients WHERE id = @ClientId;", conn);
