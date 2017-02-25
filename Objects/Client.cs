@@ -182,6 +182,7 @@ namespace HairSalonCRM.Objects
             //CHANGE CLIENT name
             SqlParameter newClientNameParameter = new SqlParameter();
             newClientNameParameter.ParameterName = "@newClientName";
+            // newClientNameParameter.Value = newClientName;
 
             //if there is a new client name, change it
             if (!String.IsNullOrEmpty(newClientName))

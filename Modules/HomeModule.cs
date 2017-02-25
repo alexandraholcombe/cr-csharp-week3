@@ -50,10 +50,11 @@ namespace HairSalonCRM
                 return View["client_edit.cshtml", model];
             };
 
+            //doesn't work just because i guess
             Patch["/clients/{id}/edit"] = parameters => {
                 Client currentClient = Client.Find(parameters.id);
                 currentClient.Update(Request.Form["new-client-name"], Request.Form["new-client-stylist"]);
-                Stylist currentStylist = Stylist.Find(currentClient.GetStylistId());
+                Stylist currentStylist = Stylist.Find(currentClient.GetClientStylistId());
                 Dictionary<string, object> model = new Dictionary<string, object>(){{"client", currentClient}, {"stylist", currentStylist}};
                 return View["client.cshtml", model];
             };
