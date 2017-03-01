@@ -1,6 +1,6 @@
 html {
-  min-height: 100%;
-  position: relative;
+    min-height: 100%;
+    position: relative;
 }
 
 body{
@@ -9,74 +9,63 @@ body{
 }
 
 #left h1 {
-  font-family: 'Unica One', cursive;
-  text-align: center;
-  font-size: 65px;
-  padding: 0;
-  text-transform: lowercase;
-  background-image: url("../img/redfork.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 200px;
-  padding-top: 26%;
-  margin-top: 3vh;
+    font-family: 'Unica One', cursive;
+    text-align: center;
+    font-size: 65px;
+    padding: 0;
+    text-transform: lowercase;
+    background-image: url("../img/redfork.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    padding-top: 26%;
+    margin-top: 3vh;
 }
 
 .col-md-4 {
-  padding: 0;
-  text-align: center;
+    padding: 0;
+    text-align: center;
 }
 
 .col-md-4 img {
-  width: 80%;
+    width: 80%;
 }
 
 #right {
-  border: 2px red solid;
-  /*margin-top:10%;*/
-  height:50vh;
-  padding-right: 40px;
-  margin-top: 5%;
-  /*overflow: auto;*/
+    height:50vh;
+    padding-right: 40px;
+    margin-top: 5%;
 }
 
 #cuisine-list {
-  margin-left: 20px;
-  font-size: 36px;
+    margin-left: 20px;
+    font-size: 36px;
 }
 
 .als-container {
-	position: relative;
-	width: 100%;
-	/*margin: 0px auto;*/
-	z-index: 0;
+    position: relative;
+    width: 100%;
+    z-index: 0;
 }
 
 .als-viewport {
-	position: relative;
-	overflow: hidden;
-	/*margin: 0px auto;*/
+    position: relative;
+    overflow: hidden;
 }
 
-/*.als-wrapper {
-	position: relative;
-	list-style: none;
-}*/
-
 .als-item {
-	position: relative;
-	display: block;
-	/*text-align: center;*/
-	cursor: pointer;
-	float: left;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    float: left;
     width: 100%
 }
 
 .als-prev, .als-next {
-	display: inline-block;
-	cursor: pointer;
-	clear: both;
+    display: inline-block;
+    cursor: pointer;
+    clear: both;
     position: absolute;
     z-index: 1000;
 }
@@ -85,43 +74,35 @@ body{
     margin-bottom: 80px;
 }
 
-/*#demo3 {
-	margin: 40px auto;
-}*/
-
 #demo3 .als-item {
-	margin: 0px 5px;
-	padding: 4px 0px;
-	min-height: 80px;
-	min-width: 260px;
+    margin: 0px 5px;
+    padding: 4px 0px;
+    min-height: 20%;
+    min-width: 260px;
+    font-size: 24px;
 }
 
-/*#demo3 .als-prev, #demo3 .als-next {
-	top: 40px;
-}*/
-
 #demo3 .als-prev {
-	right: 20px;
+    right: 20px;
     top: -50px;
 }
 
 #demo3 .als-next {
-	right: 20px;
+    right: 20px;
 }
 
 .container {
-  width: 50%;
-  max-width: 900px;
-  /*margin-left: 15%;*/
-  background-color: #fff;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  /*overflow:hidden;*/
-  z-index:-1;
-  padding: 0;
+    width: 50%;
+    max-width: 900px;
+    background-color: #fff;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    /*overflow:hidden;*/
+    z-index:-1;
+    padding: 0;
 }
 
 .form-control input {
@@ -129,13 +110,23 @@ body{
 }
 
 ul {
-  width: 500px;
+    width: 500px;
 }
 
 .als-viewport div {
-  width: 500px;
+    width: 500px;
 }
 
-.forms {
-    /*margin-top: 40px;*/
+.panel {
+    -webkit-box-shadow: 0 0px 0px rgba(0,0,0);
+    box-shadow: 0 0px 0px rgb(0,0,0);
+}
+
+.panel, .panel-group .panel {
+    border-radius: 0px;
+}
+
+.panel-heading, .panel-footer {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }

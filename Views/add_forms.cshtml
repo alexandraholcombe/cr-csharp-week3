@@ -1,23 +1,4 @@
-@{
-    Layout="Shared/_Layout.cshtml";
-}
-
-<h1>Our Stylists</h1>
-
-<div class="als-container" id="demo3">
-    <span class="als-prev">Up</span>
-    <div class="als-viewport">
-        <ul class="list-unstyled" id="cuisine-list">
-            @foreach (var stylist in @Model)
-            {
-                <li class="als-item"><a href="/stylists/@stylist.GetStylistId()">@stylist.GetStylistName()</a></li>
-            }
-        </ul>
-    </div>
-    <span class="als-next">Down</span>
-</div>
-
-@* <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
@@ -67,4 +48,4 @@
             </div>
         </div>
     </div>
-</div> *@
+</div>
